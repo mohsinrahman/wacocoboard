@@ -9,8 +9,6 @@ import {CSS} from '@dnd-kit/utilities';
 import {useSortable} from '@dnd-kit/sortable';
 
 
-
-
  const Item = forwardRef(({id, item}, ref) => {
     console.log( id)
     console.log(item)
@@ -63,7 +61,7 @@ import {useSortable} from '@dnd-kit/sortable';
       
   return (
     <Box sx={{ minWidth: 275 , margin:"10px"}} ref={setNodeRef}  {...attributes} {...listeners} style={style}>
-    <Card variant="outlined"   >{id} This is the text{card}</Card>
+    <Card variant="outlined"   >{item.title} {card}</Card>
   </Box>
   )
 });

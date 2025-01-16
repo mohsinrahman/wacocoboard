@@ -13,15 +13,13 @@ export default function SortableItem({items}) {
 
   
   return (
-    <Box sx={{ background:"#1e1e1e",width:"100%", paddingTop:"20px",marginTop:"20px", marginBottom:"20px", paddingBottom:"20px" }}>
+    <Box sx={{ background:"#f2f2f3", paddingTop:"50px",marginTop:"50px", marginBottom:"20px", paddingBottom:"20px" }}>
+    <h2>Backlog</h2>
     <SortableContext items={items} strategy={verticalListSortingStrategy}>
-   { items.map((item) => (
-   <Item key={item.id} item={item} id={item.id} />))}
+    { items.map((item) => (
+    <Item key={item.id} item={item} id={item.id} />))}
     </SortableContext> 
     </Box>
 
   );
 }
-
-{/*     <Item ref={setNodeRef} style={style} {...attributes} {...listeners} id = {item.id} props={item} />
- */} 
