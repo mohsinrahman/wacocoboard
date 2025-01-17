@@ -1,87 +1,375 @@
-import React, {useState} from 'react';
-import Typography from '@mui/material/Typography';
-import Header from './Components/Header/Header';
-import {
-  closestCenter,
-  closestCorners,
-  DndContext, 
-  DragOverlay,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors,
-} from '@dnd-kit/core';
-import {
-  arrayMove,
-  sortableKeyboardCoordinates,
-} from '@dnd-kit/sortable';
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import { Box, Typography, TextField, Paper } from "@mui/material";
+import { borders, color, margin } from "@mui/system";
+import logo from "./assets/logo.png";
+import Emoticon from "./assets/Emoticon.png";
+import Chart from "./assets/Chart.png";
+import Card from "./Components/Card/Card";
 
-import SortableItem from './SortableItem';
-import Item from './Item';
-function App() {
-  const [activeId, setActiveId] = useState(null);
-  const [items, setItems] = useState([
-    {id:1,title: "Idiation & Design", email: "test@test.com",
-    name: "test@test.com",
-    given_name: "Hello",
-    family_name: "Test",
-    nickname: "test"}, 
-    {id:2,title: "Development",email: "test@test.com",
-    name: "test@test.com",
-    given_name: "Hello",
-    family_name: "Test",
-    nickname: "test"}, 
-    {id:3,title: "Mantinance",email: "test@test.com",
-    name: "test@test.com",
-    given_name: "Hello",
-    family_name: "Test",
-    nickname: "test"}]);
-  const getItemPos = id => items.findIndex(item => item.id === id)
-  const handleDragEnd = event => {
-    const {active, over} = event;
-    
-    if (active.id === over.id) return;
-    
-    
-      setItems((items) => {
-        const oldIndex = getItemPos(active.id);
-        const newIndex = getItemPos(over.id);
-        
-        return arrayMove(items, oldIndex, newIndex);
-      });  
-  }
-  
-  const sensors = useSensors(
-    useSensor(PointerSensor),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
-    })
-  );
-  console.log(items)
+const Division = styled(Paper)(({ theme }) => ({
+  backgroundColor: "#fff",
+  height: "100vh",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles("dark", {
+    backgroundColor: "#1A2027",
+  }),
+}));
+
+export default function App() {
   return (
-    <>
-     <Header/> 
-     <Typography variant="h1" component="h2">
-  h1. Heading
-</Typography>
-  <DndContext 
-      sensors={sensors}
-      collisionDetection={closestCorners}
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}>
-      <SortableItem  items ={items} />
-    </DndContext>
-    </>
-  );
-  
-  function handleDragStart(event) {
-    const {active} = event;
-    console.log(event.active.id)
-    
-    setActiveId(active.id);
-  }
-  
+    <Box sx={{ width: 1 }}>
+      <Box
+        sx={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 0 }}
+      >
+        <Box
+          sx={{
+            gridColumn: "span 2",
+            "& .MuiPaper-root": {
+              padding: "0px",
+            },
+          }}
+        >
+          <Division sx={{ background: "#F1F2F7" }}>
+            <Box
+              component="div"
+              sx={{
+                borderBottom: 1,
+                borderColor: "#C8CBD9",
+                width: "100%",
+                height: "64px",
+              }}
+            >
+              {/* Logo */}
+              <Box
+                component="img"
+                sx={{
+                  height: 23,
+                  width: 154,
+                  marginTop: "28px",
+                }}
+                alt="Workspace."
+                src={logo}
+              />
+            </Box>
+            <Typography variant="p" component="p" sx={{ marginTop: "40px" }}>
+              PRODUKTION
+            </Typography>
+            <Box
+              component="div"
+              sx={{
+                background: "rgba(112, 127, 221, 0.10)",
+                width: "200px",
+                height: "50px",
+                textAlign: "center",
+                color: "#707FDD",
+                Opacity: "10%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "auto",
+                marginTop: "12px",
+              }}
+            >
+              <Box component="p" sx={{ letterSpacing: "1.3px" }}>
+                {" "}
+                <Box
+                  component="img"
+                  sx={{
+                    height: 18,
+                    width: 18,
+                    verticalAlign: "middle",
+                    marginRight: "20px",
+                  }}
+                  alt="Workspace."
+                  src={Chart}
+                />{" "}
+                Taskboard
+              </Box>
+            </Box>
+          </Division>
+        </Box>
 
+        {/* Right Division Starts */}
+        <Box
+          sx={{
+            gridColumn: "span 10",
+            "& .MuiPaper-root": {
+              padding: "0px",
+            },
+          }}
+        >
+          <Division sx={{ textAlign: "left" }}>
+            <Box
+              sx={{
+                width: "100%",
+                height: "140px",
+                color: "#fff",
+                "& > .MuiBox-root > .MuiBox-root": {
+                  p: 1,
+                  padding: "0px",
+                  fontSize: "0.875rem",
+                  fontWeight: "700",
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, 1fr)",
+                  gridTemplateRows: "auto",
+                  gridTemplateAreas: `"header header header header"
+                                      "main main main sidebar"`,
+                  color: "#000",
+                }}
+              >
+                <Box
+                  sx={{
+                    gridArea: "header",
+                    height: "64px",
+                    borderBottom: 1,
+                    borderColor: "#C8CBD9",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(5, 1fr)",
+                      gap: 1,
+                      gridTemplateRows: "auto",
+                      gridTemplateAreas: `"main main main . sidebar"`,
+                    }}
+                  >
+                    {/* Search Field */}
+                    <Box
+                      component="div"
+                      sx={{
+                        gridArea: "main",
+                        bgcolor: "#fff",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignSelf: "center",
+                      }}
+                    >
+                      <Box
+                        component="input"
+                        type="text"
+                        placeholder="Search..."
+                        sx={{
+                          width: "450px",
+                          height: "32px",
+                          bgcolor: "#F6F6FB",
+                          marginLeft: "20px",
+                          marginTop: "16px",
+                          border: "0px",
+                          borderRadius: "5px",
+                          paddingLeft: "10px",
+                        }}
+                      ></Box>
+                    </Box>
+                    <Box sx={{ gridArea: "sidebar", bgcolor: "#fff",display: "flex",
+                        justifyContent: "center",
+                        alignSelf: "center" }}>
+                      <Box 
+                      component="span" 
+                      sx={{
+                        display: "inline-block",
+                        width:"30px",
+                        height:"30px",
+                        borderRadius:"50%",
+                        bgcolor:"#FFE6CC",
+                        marginRight:"10px"
+                        }}>
+                      <Box
+                        component="img"
+                        sx={{
+                          height: "15",
+                          width: "14",
+                          
+                          position: "relative",
+                          top: "50%",
+                          transform: "translate(40%, -50%)"
+                        }}
+                        alt="Emoticon."
+                        src={Emoticon}
+                      />
+                      </Box>
+                      <Box 
+                      component="span"
+                      sx={{fontWeight:"300"}}
+                      > 
+                      Robert Kaya
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+                <Box sx={{ gridArea: "main" }}>
+                  <Box
+                    component="div"
+                    sx={{
+                      display: "grid",
+                      gap: 1,
+                      gridTemplateColumns: "repeat(4, 1fr)",
+                      padding: ".5em",
+                    }}
+                  >
+                    <Box
+                      component="div"
+                      sx={{
+                        background: "#DDDCEA",
+                        boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)",
+                        marginTop: "148px",
+                        height: "400px",
+                        border: "1px solid #DDDCEA",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <Box
+                        component="div"
+                        sx={{
+                          background: "#ffffff",
+                          width: "100%",
+                          height: "44px",
+                          lineHeight: "44px",
+                          borderRadius: "5px 5px 0 0",
+                          textAlign: "center",
+                          fontWeight: "200",
+                        }}
+                      >
+                        <Box component="span">BACKLOG</Box>
+                      </Box>
+                      <Box>
+                        <Card />
+                      </Box>
+                    </Box>
+                    <Box
+                      component="div"
+                      sx={{
+                        background: "#DDDCEA",
+                        boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)",
+                        marginTop: "148px",
+                        height: "200px",
+                        border: "1px solid #DDDCEA",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <Box
+                        component="div"
+                        sx={{
+                          background: "#ffffff",
+                          width: "100%",
+                          height: "44px",
+                          lineHeight: "44px",
+                          borderRadius: "5px 5px 0 0",
+                          textAlign: "center",
+                          fontWeight: "200",
+                        }}
+                      >
+                        <Box component="span">IN PROGRESS</Box>
+                      </Box>
+                      <Box>
+                        <Card />
+                      </Box>
+                    </Box>
+                    <Box
+                      component="div"
+                      sx={{
+                        background: "#DDDCEA",
+                        boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)",
+                        marginTop: "148px",
+                        height: "300px",
+                        border: "1px solid #DDDCEA",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <Box
+                        component="div"
+                        sx={{
+                          background: "#ffffff",
+                          width: "100%",
+                          height: "44px",
+                          lineHeight: "44px",
+                          borderRadius: "5px 5px 0 0",
+                          textAlign: "center",
+                          fontWeight: "200",
+                        }}
+                      >
+                        <Box component="span">PENDING</Box>
+                      </Box>
+                      <Box>
+                        <Card />
+                      </Box>
+                    </Box>
+                    <Box
+                      component="div"
+                      sx={{
+                        background: "#DDDCEA",
+                        boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)",
+                        marginTop: "148px",
+                        height: "400px",
+                        border: "1px solid #DDDCEA",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <Box
+                        component="div"
+                        sx={{
+                          background: "#ffffff",
+                          width: "100%",
+                          height: "44px",
+                          lineHeight: "44px",
+                          borderRadius: "5px 5px 0 0",
+                          textAlign: "center",
+                          fontWeight: "200",
+                        }}
+                      >
+                        <Box component="span">COMPLETED</Box>
+                      </Box>
+                      <Box>
+                        <Card />
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    gridArea: "sidebar",
+                    width: "250px",
+                    borderLeft: 1,
+                    borderColor: "#C8CBD9",
+                    height: "calc(100vh)",
+                  }}
+                >
+                  Sidebar
+                </Box>
+              </Box>
+            </Box>
+          </Division>
+        </Box>
+      </Box>
+    </Box>
+  );
 }
 
-export default App;
+/*      <Box component="div" sx={{borderBottom: 1,
+          borderColor: "#C8CBD9",
+          width: "100%",
+          height: "50px"}} >
+
+            
+          {/* <TextField fullWidth label="Search" id="fullWidth"
+           sx={{background:"#F6F6FB", height:"32px", width:"500px" , textAlign:"left" , paddingTop: "4px",
+           PaddingBottom:"34px", border: "0px"}} /> 
+           </Box>
+            
+            <Box component="div"  sx={{borderLeft: 1,
+            borderRight: 1,
+          borderColor: "#C8CBD9",
+          width: "200px",
+          height: "100%"}}>
+            ghjk
+            </Box> */
