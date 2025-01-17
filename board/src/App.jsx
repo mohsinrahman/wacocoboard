@@ -4,6 +4,7 @@ import {Box, Typography,TextField, Paper} from '@mui/material';
 import { borders, color, margin } from '@mui/system';
 import logo from './assets/logo.png';
 import Chart from "./assets/Chart.png";
+import Card from "./Components/Card/Card"
 
 
 const Division = styled(Paper)(({ theme }) => ({
@@ -60,17 +61,20 @@ export default function App() {
           display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    alignItems:"center",
+    margin: "auto",
     marginTop: "12px"
+    
         }}>
-                <Box component="p" sx={{letterSpacing:"1.3px"}}> <Box component="img" sx={{
-                height: 18,
-                width: 18,
-                verticalAlign: 'middle',
-                marginRight: "20px"
-            }}
-        alt="Workspace."
-        src={Chart}/>  Taskboard</Box>
-        </Box>
+  <Box component="p" sx={{letterSpacing:"1.3px"}}> <Box component="img" sx={{
+    height: 18,
+    width: 18,
+    verticalAlign: 'middle',
+    marginRight: "20px"
+    }}
+    alt="Workspace."
+    src={Chart}/>  Taskboard</Box>
+    </Box>
     
         </Division>
         </Box>
@@ -107,15 +111,50 @@ export default function App() {
         <Box sx={{ gridArea: 'header',height:"50px",borderBottom: 1,
           borderColor: "#C8CBD9" }}>Header</Box>
         <Box sx={{ gridArea: 'main' }}>
-        <Box sx={{ display: 'grid',gap: 1, gridTemplateColumns: 'repeat(4, 1fr)',padding: ".5em" }}>
-            <Box sx={{background: "#DDDCEA", marginTop: "50px", height: "400px"}}>1</Box>
-            <Box sx={{background: "#DDDCEA", marginTop: "50px", height: "200px"}}>2</Box>
-            <Box sx={{background: "#DDDCEA", marginTop: "50px", height: "300px"}}>3</Box>
-            <Box sx={{background: "#DDDCEA", marginTop: "50px", height: "400px"}}>4</Box>
+        <Box component="div" sx={{ display: 'grid',gap: 1, gridTemplateColumns: 'repeat(4, 1fr)',padding: ".5em" }}>
+            <Box component="div" sx={{background: "#DDDCEA",boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)", marginTop: "148px", height: "400px",border:"1px solid #DDDCEA", borderRadius:"5px"}}>
+              <Box component="div" sx={{background: "#ffffff", width:"100%", height: "44px",lineHeight: "44px", borderRadius:"5px 5px 0 0", textAlign:"center",fontWeight: "200"}}>
+                <Box component="span">
+                BACKLOG
+                </Box>
+              </Box>
+              <Box>
+                <Card/>
+              </Box>
+            </Box>
+            <Box component="div" sx={{background: "#DDDCEA",boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)", marginTop: "148px", height: "200px",border:"1px solid #DDDCEA", borderRadius:"5px"}}>
+            <Box component="div" sx={{background: "#ffffff", width:"100%", height: "44px",lineHeight: "44px", borderRadius:"5px 5px 0 0", textAlign:"center",fontWeight: "200"}}>
+                <Box component="span">
+                IN PROGRESS
+                </Box>
+            </Box>
+            <Box>
+                <Card/>
+            </Box>
+            </Box>
+            <Box component="div" sx={{background: "#DDDCEA",boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)", marginTop: "148px", height: "300px",border:"1px solid #DDDCEA", borderRadius:"5px"}}>
+            <Box component="div" sx={{background: "#ffffff", width:"100%", height: "44px",lineHeight: "44px", borderRadius:"5px 5px 0 0", textAlign:"center",fontWeight: "200"}}>
+                <Box component="span">
+                PENDING
+                </Box>
+              </Box>
+              <Box>
+                <Card/>
+              </Box>
+            </Box>
+            <Box component="div" sx={{background: "#DDDCEA",boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)", marginTop: "148px", height: "400px",border:"1px solid #DDDCEA", borderRadius:"5px"}}>
+            <Box component="div" sx={{background: "#ffffff", width:"100%", height: "44px",lineHeight: "44px", borderRadius:"5px 5px 0 0", textAlign:"center",fontWeight: "200"}}>
+                <Box component="span">
+                COMPLETED
+                </Box>
+            </Box>
+            <Box>
+                <Card/>
+            </Box>
+            </Box>
         </Box>
         </Box>
-        <Box sx={{ gridArea: 'sidebar',width:"250px",borderLeft: 1,
-          borderColor: "#C8CBD9", height: 'calc(100vh)'
+        <Box sx={{ gridArea: 'sidebar',width:"250px",borderLeft: 1, borderColor: "#C8CBD9", height: 'calc(100vh)'
         }}>Sidebar</Box>
       </Box>
     </Box>
