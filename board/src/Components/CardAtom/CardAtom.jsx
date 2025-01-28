@@ -1,7 +1,7 @@
 import React from "react";
 import { useDraggable } from "@dnd-kit/core";
 
-export function Card({ task }) {
+export function CardAtom({ task }) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: task.id,
   });

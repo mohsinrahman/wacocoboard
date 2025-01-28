@@ -2,12 +2,12 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Typography, TextField, Paper } from "@mui/material";
 import { borders, color, margin } from "@mui/system";
-import logo from "./assets/logo.png";
 import Emoticon from "./assets/Emoticon.png";
-import Chart from "./assets/Chart.png";
 import { useState } from "react";
-import { Column } from "./Components/Column/Column";
+import { ColumnMolecule } from "./Components/ColumnMolecule/ColumnMolecule";
 import { DndContext } from "@dnd-kit/core";
+import Sidebar from "./Templates/Sidebar/Sidebar";
+
 
 const COLUMNS = [
   { id: "BACKLOG", title: "BACKLOG" },
@@ -114,75 +114,9 @@ export default function App() {
       <Box
         sx={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 0 }}
       >
-        <Box
-          sx={{
-            gridColumn: "span 2",
-            "& .MuiPaper-root": {
-              padding: "0px",
-            },
-          }}
-        >
-          <Division sx={{ background: "#F1F2F7" }}>
-            <Box
-              component="div"
-              sx={{
-                borderBottom: 1,
-                borderColor: "#C8CBD9",
-                width: "100%",
-                height: "64px",
-              }}
-            >
-              {/* Logo */}
-              <Box
-                component="img"
-                sx={{
-                  height: 23,
-                  width: 154,
-                  marginTop: "28px",
-                }}
-                alt="Workspace."
-                src={logo}
-              />
-            </Box>
-            <Typography variant="p" component="p" sx={{ marginTop: "40px" }}>
-              PRODUKTION
-            </Typography>
-            <Box
-              component="div"
-              sx={{
-                background: "rgba(112, 127, 221, 0.10)",
-                width: "200px",
-                height: "50px",
-                textAlign: "center",
-                color: "#707FDD",
-                Opacity: "10%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                margin: "auto",
-                marginTop: "12px",
-              }}
-            >
-              <Box component="p" sx={{ letterSpacing: "1.3px" }}>
-                {" "}
-                <Box
-                  component="img"
-                  sx={{
-                    height: 18,
-                    width: 18,
-                    verticalAlign: "middle",
-                    marginRight: "20px",
-                  }}
-                  alt="Workspace."
-                  src={Chart}
-                />{" "}
-                Taskboard
-              </Box>
-            </Box>
-          </Division>
-        </Box>
-
+       {/* Left Division Starts */}
+ <Sidebar/>
+                   {/* Left Division Ends */}
         {/* Right Division Starts */}
         <Box
           sx={{
@@ -314,7 +248,7 @@ export default function App() {
                     <DndContext onDragEnd={handleDragEnd}>
                       {COLUMNS.map((column) => {
                         return (
-                          <Column
+                          <ColumnMolecule
                             key={column.id}
                             column={column}
                             tasks={tasks.filter(

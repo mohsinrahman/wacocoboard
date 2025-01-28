@@ -2,9 +2,9 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import { useDroppable } from "@dnd-kit/core";
 import { Box, Typography, Paper } from "@mui/material";
-import {Card} from "../Card/Card";
+import {CardAtom} from "../CardAtom/CardAtom";
 
-export function Column({ column, tasks }) {
+export function ColumnMolecule({ column, tasks }) {
   console.log(column, tasks);
   const { setNodeRef } = useDroppable({
     id: column.id,
@@ -38,7 +38,7 @@ export function Column({ column, tasks }) {
         </Box>
         <Box ref={setNodeRef}>
           {tasks.map((task) => {
-            return <Card key={task.id} task={task} />;
+            return <CardAtom key={task.id} task={task} />;
           })}
         </Box>
       </Box>
