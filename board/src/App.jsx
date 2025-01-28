@@ -5,76 +5,74 @@ import { borders, color, margin } from "@mui/system";
 import logo from "./assets/logo.png";
 import Emoticon from "./assets/Emoticon.png";
 import Chart from "./assets/Chart.png";
-import Card from "./Components/Card/Card";
-import { useState } from 'react';
-import Column from "./Components/Column/Column";
-import { DndContext} from '@dnd-kit/core';
+import { useState } from "react";
+import { Column } from "./Components/Column/Column";
+import { DndContext } from "@dnd-kit/core";
 
 const COLUMNS = [
-  { id: 'BACKLOG', title: 'BACKLOG' },
-  { id: 'IN_PROGRESS', title: 'IN PROGRESS' },
-  { id: 'PENDING', title: 'PENDING' },
-  { id: 'COMPLETED', title: 'COMPLETE' },
+  { id: "BACKLOG", title: "BACKLOG" },
+  { id: "IN_PROGRESS", title: "IN PROGRESS" },
+  { id: "PENDING", title: "PENDING" },
+  { id: "COMPLETED", title: "COMPLETE" },
 ];
 
 const INITIAL_TASKS = [
   {
-    id: '1',
-    title: 'Nestle',
-    Date: "2025-01-15",
-    Time: "10:30",
-    Name: "Jade",
-    Nickle: "LN+54722",
-    Bilnummer: "WPR4355",
-    Order: "3",
-    status: "BACKLOG"
+    id: "1",
+    title: "Nestle",
+    date: "2025-01-15",
+    time: "10:30",
+    name: "Jade",
+    nickle: "LN+54722",
+    bilnummer: "WPR4355",
+    order: "3",
+    status: "BACKLOG",
   },
   {
-    id: '2',
-    title: 'Nestle',
-    Date: "2025-01-15",
-    Time: "10:30",
-    Name: "Jade",
-    Nickle: "LN+54722",
-    Bilnummer: "WPR4355",
-    Order: "3",
-    status: "COMPLETED"
+    id: "2",
+    title: "Nestle",
+    date: "2025-01-15",
+    time: "10:30",
+    name: "Jade",
+    nickle: "LN+54722",
+    bilnummer: "WPR4355",
+    order: "3",
+    status: "COMPLETED",
   },
   {
-    id: '3',
-    title: 'Nestle',
-    Date: "2025-01-15",
-    Time: "10:30",
-    Name: "Jade",
-    Nickle: "LN+54722",
-    Bilnummer: "WPR4355",
-    Order: "3",
-    status: "PENDING"
+    id: "3",
+    title: "Nestle",
+    date: "2025-01-15",
+    time: "10:30",
+    name: "Jade",
+    nickle: "LN+54722",
+    bilnummer: "WPR4355",
+    order: "3",
+    status: "PENDING",
   },
   {
-    id: '4',
-    title: 'Nestle',
-    Date: "2025-01-15",
-    Time: "10:30",
-    Name: "Jade",
-    Nickle: "LN+54722",
-    Bilnummer: "WPR4355",
-    Order: "3",
-    status: "IN_PROGRESS"
+    id: "4",
+    title: "Nestle",
+    date: "2025-01-15",
+    time: "10:30",
+    name: "Jade",
+    nickle: "LN+54722",
+    bilnummer: "WPR4355",
+    order: "3",
+    status: "IN_PROGRESS",
   },
   {
-    id: '5',
-    title: 'Nestle',
-    Date: "2025-01-15",
-    Time: "10:30",
-    Name: "Jade",
-    Nickle: "LN+54722",
-    Bilnummer: "WPR4355",
-    Order: "3",
-    status: 'IN_PROGRESS',
-  }
+    id: "5",
+    title: "Nestle",
+    date: "2025-01-15",
+    time: "10:30",
+    name: "Jade",
+    nickle: "LN+54722",
+    bilnummer: "WPR4355",
+    order: "3",
+    status: "IN_PROGRESS",
+  },
 ];
-
 
 const Division = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -89,7 +87,6 @@ const Division = styled(Paper)(({ theme }) => ({
 }));
 
 export default function App() {
-
   const [tasks, setTasks] = useState(INITIAL_TASKS);
 
   function handleDragEnd(event) {
@@ -263,38 +260,42 @@ export default function App() {
                         }}
                       ></Box>
                     </Box>
-                    <Box sx={{ gridArea: "sidebar", bgcolor: "#fff",display: "flex",
-                        justifyContent: "center",
-                        alignSelf: "center" }}>
-                      <Box 
-                      component="span" 
+                    <Box
                       sx={{
-                        display: "inline-block",
-                        width:"30px",
-                        height:"30px",
-                        borderRadius:"50%",
-                        bgcolor:"#FFE6CC",
-                        marginRight:"10px"
-                        }}>
+                        gridArea: "sidebar",
+                        bgcolor: "#fff",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignSelf: "center",
+                      }}
+                    >
                       <Box
-                        component="img"
+                        component="span"
                         sx={{
-                          height: "15",
-                          width: "14",
-                          
-                          position: "relative",
-                          top: "50%",
-                          transform: "translate(40%, -50%)"
+                          display: "inline-block",
+                          width: "30px",
+                          height: "30px",
+                          borderRadius: "50%",
+                          bgcolor: "#FFE6CC",
+                          marginRight: "10px",
                         }}
-                        alt="Emoticon."
-                        src={Emoticon}
-                      />
+                      >
+                        <Box
+                          component="img"
+                          sx={{
+                            height: "15",
+                            width: "14",
+
+                            position: "relative",
+                            top: "50%",
+                            transform: "translate(40%, -50%)",
+                          }}
+                          alt="Emoticon."
+                          src={Emoticon}
+                        />
                       </Box>
-                      <Box 
-                      component="span"
-                      sx={{fontWeight:"300"}}
-                      > 
-                      Robert Kaya
+                      <Box component="span" sx={{ fontWeight: "300" }}>
+                        Robert Kaya
                       </Box>
                     </Box>
                   </Box>
@@ -309,19 +310,20 @@ export default function App() {
                       padding: ".5em",
                     }}
                   >
-                    {/* Back Log Starts */}
+                    {/* DndContext Starts */}
                     <DndContext onDragEnd={handleDragEnd}>
-          {COLUMNS.map((column) => {
-            return (
-              <Column
-                key={column.id}
-                column={column}
-                tasks={tasks.filter((task) => task.status === column.id)}
-              />
-            );
-          })}
-        </DndContext>
-                    {/* Completed Ends */}
+                      {COLUMNS.map((column) => {
+                        return (
+                          <Column
+                            key={column.id}
+                            column={column}
+                            tasks={tasks.filter(
+                              (task) => task.status === column.id,
+                            )}
+                          />
+                        );
+                      })}
+                    </DndContext>
                   </Box>
                 </Box>
                 <Box
