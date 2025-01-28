@@ -27,7 +27,7 @@ const INITIAL_TASKS = [
     name: "Jade",
     nickle: "LN+54722",
     bilnummer: "WPR4355",
-    order: "3",
+    order: "2",
     status: "BACKLOG",
   },
   {
@@ -38,7 +38,7 @@ const INITIAL_TASKS = [
     name: "Jade",
     nickle: "LN+54722",
     bilnummer: "WPR4355",
-    order: "3",
+    order: "13",
     status: "COMPLETED",
   },
   {
@@ -49,7 +49,7 @@ const INITIAL_TASKS = [
     name: "Jade",
     nickle: "LN+54722",
     bilnummer: "WPR4355",
-    order: "3",
+    order: "34",
     status: "PENDING",
   },
   {
@@ -60,7 +60,7 @@ const INITIAL_TASKS = [
     name: "Jade",
     nickle: "LN+54722",
     bilnummer: "WPR4355",
-    order: "3",
+    order: "22",
     status: "IN_PROGRESS",
   },
   {
@@ -71,7 +71,7 @@ const INITIAL_TASKS = [
     name: "Jade",
     nickle: "LN+54722",
     bilnummer: "WPR4355",
-    order: "3",
+    order: "55",
     status: "IN_PROGRESS",
   },
 ];

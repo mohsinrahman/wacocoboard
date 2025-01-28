@@ -1,4 +1,6 @@
 import React from "react";
+import { Box, Paper } from "@mui/material";
+
 import { useDraggable } from "@dnd-kit/core";
 
 export function CardAtom({ task }) {
@@ -8,20 +10,41 @@ export function CardAtom({ task }) {
   const style = transform
     ? {
         transform: `translate(${transform.x}px, ${transform.y}px)`,
-        background: "#DDDCEA",
+        background: "#FFFFFF",
       }
-    : { background: "#E3E3E3" };
+    : { background: "#FFFFFF" };
 
   return (
-    <div
+    <Box
+      component="div"
       ref={setNodeRef}
       {...listeners}
       {...attributes}
       className=" "
       style={style}
+      sx={{ width: "180px", border: "1px solid #DDDCEA" }}
     >
-      <h3 className="font-medium text-neutral-100">{task.title}</h3>
-      <p className="mt-2 text-sm text-neutral-400">{task.name}</p>
-    </div>
+      <Box component="h3" className="font-medium text-neutral-100">
+        {task.title}
+      </Box>
+      <Box component="p" className="mt-2 text-sm text-neutral-400">
+        {task.date}
+      </Box>
+      <Box component="p" className="mt-2 text-sm text-neutral-400">
+        {task.name}
+      </Box>
+      <Box component="p" className="mt-2 text-sm text-neutral-400">
+        {task.nyckle}
+      </Box>
+      <Box component="p" className="mt-2 text-sm text-neutral-400">
+        {task.bilnummer}
+      </Box>
+      <Box component="p" className="mt-2 text-sm text-neutral-400">
+        {task.order}
+      </Box>
+      <Box component="p" className="mt-2 text-sm text-neutral-400">
+        {task.status}
+      </Box>
+    </Box>
   );
 }

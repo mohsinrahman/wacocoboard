@@ -13,12 +13,15 @@ export function ColumnMolecule({ column, tasks }) {
       <Box
         component="div"
         sx={{
-          background: "#DDDCEA",
+          background: "#FBFBFE",
           boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)",
           marginTop: "148px",
-          height: "400px",
+          minHeight: "400px",
           border: "1px solid #DDDCEA",
           borderRadius: "5px",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
         }}
       >
         <Box
