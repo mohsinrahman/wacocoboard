@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import { useDroppable } from "@dnd-kit/core";
 import { Box, Typography, Paper } from "@mui/material";
-import {CardAtom} from "../CardAtom/CardAtom";
+import { CardAtom } from "../CardAtom/CardAtom";
 
 export function ColumnMolecule({ column, tasks }) {
   console.log(column, tasks);
