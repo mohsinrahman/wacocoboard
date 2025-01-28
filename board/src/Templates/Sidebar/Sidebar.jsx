@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Typography, TextField, Paper } from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
 import logo from "../../assets/logo.png";
 import Chart from "../../assets/Chart.png";
 

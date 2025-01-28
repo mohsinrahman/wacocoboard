@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Typography, TextField, Paper } from "@mui/material";
-import { borders, color, margin } from "@mui/system";
+import { Box } from "@mui/material";
 import Emoticon from "../../assets/Emoticon.png";
 
 export default function Header() {

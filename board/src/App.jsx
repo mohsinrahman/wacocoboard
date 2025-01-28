@@ -1,11 +1,13 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import { Box, Typography, TextField, Paper } from "@mui/material";
-import { borders, color, margin } from "@mui/system";
-import Emoticon from "./assets/Emoticon.png";
 import { useState } from "react";
-import { ColumnMolecule } from "./Components/ColumnMolecule/ColumnMolecule";
+/* Material UI */
+import { styled } from "@mui/material/styles";
+import { Box, Paper } from "@mui/material";
+/* DnD Kit */
 import { DndContext } from "@dnd-kit/core";
+/* Components */
+import { ColumnMolecule } from "./Components/ColumnMolecule/ColumnMolecule";
+/* Templates */
 import Sidebar from "./Templates/Sidebar/Sidebar";
 import Header from "./Templates/Header/Header";
 
@@ -177,6 +179,7 @@ export default function App() {
                         );
                       })}
                     </DndContext>
+                    {/* DndContext Ends */}
                   </Box>
                 </Box>
                 <Box
@@ -198,22 +201,3 @@ export default function App() {
     </Box>
   );
 }
-
-/*      <Box component="div" sx={{borderBottom: 1,
-          borderColor: "#C8CBD9",
-          width: "100%",
-          height: "50px"}} >
-
-            
-          {/* <TextField fullWidth label="Search" id="fullWidth"
-           sx={{background:"#F6F6FB", height:"32px", width:"500px" , textAlign:"left" , paddingTop: "4px",
-           PaddingBottom:"34px", border: "0px"}} /> 
-           </Box>
-            
-            <Box component="div"  sx={{borderLeft: 1,
-            borderRight: 1,
-          borderColor: "#C8CBD9",
-          width: "200px",
-          height: "100%"}}>
-            ghjk
-            </Box> */
