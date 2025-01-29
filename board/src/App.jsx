@@ -76,18 +76,6 @@ const INITIAL_TASKS = [
   },
 ];
 
-const Division = styled(Paper)(({ theme }) => ({
-  backgroundColor: "#fff",
-  height: "100vh",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  ...theme.applyStyles("dark", {
-    backgroundColor: "#1A2027",
-  }),
-}));
-
 export default function App() {
   const [tasks, setTasks] = useState(INITIAL_TASKS);
 
@@ -112,90 +100,104 @@ export default function App() {
   }
 
   return (
-    <Box sx={{ width: 1 }}>
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        gap: 0,
+        background: "yellow",
+      }}
+    >
+      {/* Left Division Starts */}
+      <Sidebar />
+      {/* Left Division Ends */}
+      {/* Right Division Starts */}
       <Box
-        sx={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 0 }}
+        sx={{
+          gridColumn: "span 10",
+          "& .MuiPaper-root": {
+            padding: "0px",
+          },
+        }}
       >
-        {/* Left Division Starts */}
-        <Sidebar />
-        {/* Left Division Ends */}
-        {/* Right Division Starts */}
         <Box
+          component="div"
           sx={{
-            gridColumn: "span 10",
-            "& .MuiPaper-root": {
-              padding: "0px",
-            },
+            textAlign: "left",
+            backgroundColor: "#fff",
+            border: "1px solid green",
+            minHeight: "100vh",
+            overflow: "auto",
+            textAlign: "center",
           }}
         >
-          <Division sx={{ textAlign: "left" }}>
+          {/* Search bar  */}
+          <Box
+            sx={{
+              width: "100%",
+              height: "140px",
+              color: "#fff",
+              "& > .MuiBox-root > .MuiBox-root": {
+                p: 1,
+                padding: "0px",
+                fontSize: "0.875rem",
+                fontWeight: "700",
+              },
+            }}
+          >
             <Box
               sx={{
-                width: "100%",
-                height: "140px",
-                color: "#fff",
-                "& > .MuiBox-root > .MuiBox-root": {
-                  p: 1,
-                  padding: "0px",
-                  fontSize: "0.875rem",
-                  fontWeight: "700",
-                },
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gridTemplateRows: "auto",
+                gridTemplateAreas: `"header header header header"
+                                      "main main main sidebar"`,
+                color: "#000",
               }}
             >
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(2, 1fr)",
-                  gridTemplateRows: "auto",
-                  gridTemplateAreas: `"header header header header"
-                                      "main main main sidebar"`,
-                  color: "#000",
-                }}
-              >
-                {/* Header  */}
-                <Header />
-                {/* Header Ends */}
-                <Box sx={{ gridArea: "main" }}>
-                  <Box
-                    component="div"
-                    sx={{
-                      display: "grid",
-                      gap: 2,
-                      gridTemplateColumns: "repeat(4, 1fr)",
-                      padding: ".5em",
-                    }}
-                  >
-                    {/* DndContext Starts */}
-                    <DndContext onDragEnd={handleDragEnd}>
-                      {COLUMNS.map((column) => {
-                        return (
-                          <ColumnMolecule
-                            key={column.id}
-                            column={column}
-                            tasks={tasks.filter(
-                              (task) => task.status === column.id,
-                            )}
-                          />
-                        );
-                      })}
-                    </DndContext>
-                    {/* DndContext Ends */}
-                  </Box>
-                </Box>
+              {/* Header  */}
+              <Header />
+              {/* Header Ends */}
+              <Box sx={{ gridArea: "main", height: "100%" }}>
                 <Box
+                  component="div"
                   sx={{
-                    gridArea: "sidebar",
-                    width: "250px",
-                    borderLeft: 1,
-                    borderColor: "#C8CBD9",
-                    height: "calc(100vh)",
+                    display: "grid",
+                    gap: 2,
+                    gridTemplateColumns: "repeat(4, 1fr)",
+                    padding: ".5em",
                   }}
                 >
-                  Sidebar
+                  {/* DndContext Starts */}
+                  <DndContext onDragEnd={handleDragEnd}>
+                    {COLUMNS.map((column) => {
+                      return (
+                        <ColumnMolecule
+                          key={column.id}
+                          column={column}
+                          tasks={tasks.filter(
+                            (task) => task.status === column.id,
+                          )}
+                        />
+                      );
+                    })}
+                  </DndContext>
+                  {/* DndContext Ends */}
                 </Box>
               </Box>
+              <Box
+                sx={{
+                  gridArea: "sidebar",
+                  width: "160px",
+                  borderLeft: 1,
+                  borderColor: "#C8CBD9",
+                  height: "100%",
+                }}
+              >
+                Sidebar
+              </Box>
             </Box>
-          </Division>
+          </Box>
         </Box>
       </Box>
     </Box>

@@ -15,6 +15,7 @@ export function CardAtom({ task }) {
     : { background: "#FFFFFF" };
 
   return (
+    /* Parent div of Card starts */
     <Box
       component="div"
       ref={setNodeRef}
@@ -22,29 +23,45 @@ export function CardAtom({ task }) {
       {...attributes}
       className=" "
       style={style}
-      sx={{ width: "180px", border: "1px solid #DDDCEA" }}
+      sx={{
+        width: "218px",
+        border: "1px solid #DDDCEA",
+        borderRadius: "5px",
+        margin: "10px 0px",
+        display: "grid",
+        boxShadow: "4px 2px 7px .2px rgba(0, 0, 0, 0.1)",
+        gridTemplateColumns: "repeat(2, 10% 90% 1fr)",
+        gap: "2",
+        p: "2",
+      }}
     >
-      <Box component="h3" className="font-medium text-neutral-100">
-        {task.title}
+      {/* left Column colored */}
+      <Box
+        component="div"
+        sx={{
+          width: "5px",
+          height: "150px",
+          background: "#DF0946",
+          position: "relative",
+          alignSelf: "center",
+          borderRadius: "5px",
+        }}
+      ></Box>
+      {/* Right Column */}
+      <Box component="div" sx={{ background: "orange" }}>
+        {/* Top Section */}
+        <Box component="h3">{task.title}</Box>
+        <Box component="p">{task.date}</Box>
+        <Box component="p">{task.name}</Box>
+        {/* Middle Section */}
+        <Box component="p">{task.nyckle}</Box>
+        <Box component="p">{task.bilnummer}</Box>
+        <Box component="p">{task.order}</Box>
+        {/* Last section */}
+        <Box component="p">{task.status}</Box>
+        {/* Right Column Ends */}
       </Box>
-      <Box component="p" className="mt-2 text-sm text-neutral-400">
-        {task.date}
-      </Box>
-      <Box component="p" className="mt-2 text-sm text-neutral-400">
-        {task.name}
-      </Box>
-      <Box component="p" className="mt-2 text-sm text-neutral-400">
-        {task.nyckle}
-      </Box>
-      <Box component="p" className="mt-2 text-sm text-neutral-400">
-        {task.bilnummer}
-      </Box>
-      <Box component="p" className="mt-2 text-sm text-neutral-400">
-        {task.order}
-      </Box>
-      <Box component="p" className="mt-2 text-sm text-neutral-400">
-        {task.status}
-      </Box>
+      {/*  Parent div of Card ends */}
     </Box>
   );
 }

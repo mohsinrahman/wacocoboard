@@ -3,19 +3,14 @@ import { styled } from "@mui/material/styles";
 import { Box, Typography, Paper } from "@mui/material";
 import logo from "../../assets/logo.png";
 import Chart from "../../assets/Chart.png";
+import { withTheme } from "@emotion/react";
 
 export default function Sidebar() {
-  const Division = styled(Paper)(({ theme }) => ({
+  /*  const Division = styled(Paper)(({ theme }) => ({
     backgroundColor: "#fff",
-    height: "100vh",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
+    minHeight: "100vh",
     textAlign: "center",
-    color: theme.palette.text.secondary,
-    ...theme.applyStyles("dark", {
-      backgroundColor: "#1A2027",
-    }),
-  }));
+  })); */
   return (
     <Box
       sx={{
@@ -25,7 +20,14 @@ export default function Sidebar() {
         },
       }}
     >
-      <Division sx={{ background: "#F1F2F7" }}>
+      <Box
+        component="div"
+        sx={{
+          border: "1px solid Red",
+          minHeight: "100vh",
+          textAlign: "center",
+        }} /* sx={{ background: "#F1F2F7" }} */
+      >
         <Box
           component="div"
           sx={{
@@ -83,7 +85,7 @@ export default function Sidebar() {
             Taskboard
           </Box>
         </Box>
-      </Division>
+      </Box>
     </Box>
   );
 }
