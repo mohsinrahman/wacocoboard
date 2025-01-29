@@ -25,7 +25,7 @@ const INITIAL_TASKS = [
     date: "2025-01-15",
     time: "10:30",
     name: "Jade",
-    nickle: "LN+54722",
+    nyckle: "LN+54722",
     bilnummer: "WPR4355",
     order: "2",
     status: "BACKLOG",
@@ -36,7 +36,7 @@ const INITIAL_TASKS = [
     date: "2025-01-15",
     time: "10:30",
     name: "Jade",
-    nickle: "LN+54722",
+    nyckle: "LN+54722",
     bilnummer: "WPR4355",
     order: "13",
     status: "COMPLETED",
@@ -47,7 +47,7 @@ const INITIAL_TASKS = [
     date: "2025-01-15",
     time: "10:30",
     name: "Jade",
-    nickle: "LN+54722",
+    nyckle: "LN+54722",
     bilnummer: "WPR4355",
     order: "34",
     status: "PENDING",
@@ -58,7 +58,7 @@ const INITIAL_TASKS = [
     date: "2025-01-15",
     time: "10:30",
     name: "Jade",
-    nickle: "LN+54722",
+    nyckle: "LN+54722",
     bilnummer: "WPR4355",
     order: "22",
     status: "IN_PROGRESS",
@@ -69,7 +69,7 @@ const INITIAL_TASKS = [
     date: "2025-01-15",
     time: "10:30",
     name: "Jade",
-    nickle: "LN+54722",
+    nyckle: "LN+54722",
     bilnummer: "WPR4355",
     order: "55",
     status: "IN_PROGRESS",
@@ -191,9 +191,7 @@ export default function App() {
                   borderColor: "#C8CBD9",
                   height: "100%",
                 }}
-              >
-                Sidebar
-              </Box>
+              ></Box>
             </Box>
           </Box>
         </Box>

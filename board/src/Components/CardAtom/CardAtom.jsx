@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import Divider from '@mui/material/Divider';
-
+import Divider from "@mui/material/Divider";
 
 import { useDraggable } from "@dnd-kit/core";
 
@@ -27,6 +26,7 @@ export function CardAtom({ task }) {
       style={style}
       sx={{
         width: "218px",
+        height: "auto",
         border: "1px solid #DDDCEA",
         borderRadius: "5px",
         margin: "10px 0px",
@@ -35,14 +35,15 @@ export function CardAtom({ task }) {
         gridTemplateColumns: "repeat(2, 5% 90% 1fr)",
         gap: "2",
         p: "2",
+        fontSize: "12px",
       }}
     >
       {/* left Column colored */}
       <Box
         component="div"
         sx={{
-          width: "5px",
-          height: "150px",
+          width: "3px",
+          height: "136px",
           background: "#DF0946",
           position: "relative",
           alignSelf: "center",
@@ -50,21 +51,86 @@ export function CardAtom({ task }) {
         }}
       ></Box>
       {/* Right Column */}
-      <Box component="div" >
+      <Box component="div">
         {/* Top Section */}
-        <Box component="h3">{task.title}</Box>
-        <Box component="p">{task.date}</Box>
-        <Box component="p">{task.name}</Box>
-        <Divider orientation="vertical" variant="middle" flexItem sx={{ background: "rgba(0, 0, 0, 0.12)",borderWidth: ".5px" }} />
+
+        <Box
+          component="div"
+          sx={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}
+        >
+          <Box>
+            <Box component="h3">{task.title}</Box>
+            <Box component="p" sx={{ color: "#828282" }}>
+              {task.name}
+            </Box>
+          </Box>
+          <Box component="p">{task.date}</Box>
+        </Box>
+        <Divider
+          orientation="vertical"
+          variant="middle"
+          flexItem
+          sx={{
+            background: "rgba(0, 0, 0, 0.12)",
+            borderWidth: ".5px",
+            marginTop: "0px",
+            marginBottom: "0px",
+          }}
+        />
 
         {/* Middle Section */}
-        <Box component="p">{task.nyckle}</Box>
-        <Box component="p">{task.bilnummer}</Box>
-        <Box component="p">{task.order}</Box>
-        <Divider orientation="vertical" variant="middle" flexItem sx={{ background: "rgba(0, 0, 0, 0.12)",borderWidth: ".5px" }}/>
+        <Box
+          component="div"
+          sx={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}
+        >
+          <Box>Faktura</Box>
+          <Box>Sändnings</Box>
+        </Box>
+        <Box
+          component="div"
+          sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}
+        >
+          <Box component="div">
+            <Box component="p" sx={{ color: "#828282", fontSize: "10px" }}>
+              Nyckle
+            </Box>
+            <Box component="p">{task.nyckle}</Box>
+          </Box>
+          <Box component="div">
+            <Box component="p" sx={{ color: "#828282", fontSize: "10px" }}>
+              Bilnummer
+            </Box>
+            <Box component="p">{task.bilnummer}</Box>
+          </Box>
+          <Box component="div">
+            <Box component="p" sx={{ color: "#828282", fontSize: "10px" }}>
+              Order
+            </Box>
+            <Box component="p">{task.order}</Box>
+          </Box>
+        </Box>
+        <Divider
+          orientation="vertical"
+          variant="middle"
+          flexItem
+          sx={{ background: "rgba(0, 0, 0, 0.12)", borderWidth: ".5px" }}
+        />
 
         {/* Last section */}
-        <Box component="span" sx={{display:"inline-block", borderRadius:"50%", background:"green",width:"16px", height:"16px", marginRight:"20px"}}></Box><Box component="p" sx={{display:"inline-block"}}>{task.status}</Box>
+        <Box
+          component="span"
+          sx={{
+            display: "inline-block",
+            borderRadius: "50%",
+            background: "#34C759",
+            width: "16px",
+            height: "16px",
+            marginRight: "20px",
+          }}
+        ></Box>
+        <Box component="p" sx={{ display: "inline-block" }}>
+          {task.status}
+        </Box>
         {/* Right Column Ends */}
       </Box>
       {/*  Parent div of Card ends */}

@@ -20,8 +20,8 @@ export default function Sidebar() {
         sx={{
           minHeight: "100vh",
           textAlign: "center",
-          background: "#F1F2F7"
-        }}   
+          background: "#F1F2F7",
+        }}
       >
         <Box
           component="div"
@@ -78,6 +78,40 @@ export default function Sidebar() {
               src={Chart}
             />{" "}
             Taskboard
+          </Box>
+        </Box>
+
+        <Box
+          component="div"
+          sx={{
+            background: "rgba(112, 127, 221, 0.10)",
+            width: "200px",
+            height: "50px",
+            textAlign: "center",
+            color: "#707FDD",
+            Opacity: "10%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "auto",
+            marginTop: "12px",
+          }}
+        >
+          <Box component="p" sx={{ letterSpacing: "1.3px" }}>
+            {" "}
+            <Box
+              component="img"
+              sx={{
+                height: 18,
+                width: 18,
+                verticalAlign: "middle",
+                marginRight: "20px",
+              }}
+              alt="Workspace."
+              src={Chart}
+            />{" "}
+            Invoices
           </Box>
         </Box>
       </Box>
