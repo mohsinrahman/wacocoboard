@@ -6,11 +6,6 @@ import Chart from "../../assets/Chart.png";
 import { withTheme } from "@emotion/react";
 
 export default function Sidebar() {
-  /*  const Division = styled(Paper)(({ theme }) => ({
-    backgroundColor: "#fff",
-    minHeight: "100vh",
-    textAlign: "center",
-  })); */
   return (
     <Box
       sx={{
@@ -23,10 +18,10 @@ export default function Sidebar() {
       <Box
         component="div"
         sx={{
-          border: "1px solid Red",
           minHeight: "100vh",
           textAlign: "center",
-        }} /* sx={{ background: "#F1F2F7" }} */
+          background: "#F1F2F7"
+        }}   
       >
         <Box
           component="div"

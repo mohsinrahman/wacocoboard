@@ -105,7 +105,6 @@ export default function App() {
         display: "grid",
         gridTemplateColumns: "repeat(12, 1fr)",
         gap: 0,
-        background: "yellow",
       }}
     >
       {/* Left Division Starts */}
@@ -125,7 +124,6 @@ export default function App() {
           sx={{
             textAlign: "left",
             backgroundColor: "#fff",
-            border: "1px solid green",
             minHeight: "100vh",
             overflow: "auto",
             textAlign: "center",
