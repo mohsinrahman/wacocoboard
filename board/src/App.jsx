@@ -1,13 +1,13 @@
 import * as React from "react";
 /* React Router */
-import { Routes, Route } from 'react-router';
+import { Routes, Route } from "react-router";
 /* Material UI */
 import { Box } from "@mui/material";
 /* Templates */
 import Sidebar from "./Templates/Sidebar/Sidebar";
 import Home from "./Templates/Home/Home";
 import Invoice from "./Templates/Invoice/Invoice";
-
+import Login from "./Templates/Login/Login";
 
 export default function App() {
   return (
@@ -41,10 +41,10 @@ export default function App() {
         >
           {/* Search bar  */}
           <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/invoice" element={<Invoice />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/invoice" element={<Invoice />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
-          
         </Box>
       </Box>
     </Box>

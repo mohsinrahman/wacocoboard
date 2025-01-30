@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 /* MUI */
-import { Slide } from '@mui/material';
+import { Slide } from "@mui/material";
 import { Box, Paper } from "@mui/material";
 /* DnD Kit */
 import { DndContext } from "@dnd-kit/core";
@@ -126,30 +126,30 @@ function Home() {
         <Header />
         {/* Header Ends */}
         <Box sx={{ gridArea: "main", height: "100%" }}>
-        <Slide direction="right" in={true} timeout={300}>
-          <Box
-            component="div"
-            sx={{
-              display: "grid",
-              gap: 2,
-              gridTemplateColumns: "repeat(4, 1fr)",
-              padding: ".5em",
-            }}
-          >
-            {/* DndContext Starts */}
-            <DndContext onDragEnd={handleDragEnd}>
-              {COLUMNS.map((column) => {
-                return (
-                  <ColumnMolecule
-                    key={column.id}
-                    column={column}
-                    tasks={tasks.filter((task) => task.status === column.id)}
-                  />
-                );
-              })}
-            </DndContext>
-            {/* DndContext Ends */}
-          </Box>
+          <Slide direction="right" in={true} timeout={300}>
+            <Box
+              component="div"
+              sx={{
+                display: "grid",
+                gap: 2,
+                gridTemplateColumns: "repeat(4, 1fr)",
+                padding: ".5em",
+              }}
+            >
+              {/* DndContext Starts */}
+              <DndContext onDragEnd={handleDragEnd}>
+                {COLUMNS.map((column) => {
+                  return (
+                    <ColumnMolecule
+                      key={column.id}
+                      column={column}
+                      tasks={tasks.filter((task) => task.status === column.id)}
+                    />
+                  );
+                })}
+              </DndContext>
+              {/* DndContext Ends */}
+            </Box>
           </Slide>
         </Box>
         <Box
@@ -163,7 +163,6 @@ function Home() {
         ></Box>
       </Box>
     </Box>
-    
   );
 }
 

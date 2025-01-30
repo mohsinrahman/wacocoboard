@@ -47,7 +47,7 @@ export default function Sidebar() {
           />
         </Box>
         <Typography variant="p" component="p" sx={{ marginTop: "40px" }}>
-       PRODUKTION
+          PRODUKTION
         </Typography>
         <Box
           component="div"
@@ -79,9 +79,14 @@ export default function Sidebar() {
               alt="Workspace."
               src={Chart}
             />{" "}
-             <Link style={{textDecoration:"none"}} to={{
-    pathname: "/",
-  }}>Taskboard</Link>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={{
+                pathname: "/",
+              }}
+            >
+              Taskboard
+            </Link>
           </Box>
         </Box>
 
@@ -115,10 +120,14 @@ export default function Sidebar() {
               alt="Workspace."
               src={Chart}
             />
-            <Link style={{textDecoration:"none"}} to={{
-    pathname: "/invoice",
-  }}>Invoices</Link>
-            
+            <Link
+              style={{ textDecoration: "none" }}
+              to={{
+                pathname: "/invoice",
+              }}
+            >
+              Invoices
+            </Link>
           </Box>
         </Box>
       </Box>

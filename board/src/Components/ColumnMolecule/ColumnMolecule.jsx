@@ -22,7 +22,7 @@ export function ColumnMolecule({ column, tasks }) {
           borderRadius: "5px",
           display: "flex",
           alignItems: "center",
-          flexDirection: "column"
+          flexDirection: "column",
         }}
       >
         <Box
@@ -34,11 +34,12 @@ export function ColumnMolecule({ column, tasks }) {
             lineHeight: "44px",
             borderRadius: "5px 5px 0 0",
             textAlign: "center",
-            letterSpacing:"1px"
-            
+            letterSpacing: "1px",
           }}
         >
-          <Box component="span" sx={{fontSize:"16px",fontWeight: "bold"}}>{column.title}</Box>
+          <Box component="span" sx={{ fontSize: "16px", fontWeight: "bold" }}>
+            {column.title}
+          </Box>
         </Box>
         <Box ref={setNodeRef}>
           {tasks.map((task) => {

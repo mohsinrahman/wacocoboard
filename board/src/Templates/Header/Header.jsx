@@ -1,6 +1,8 @@
 import React from "react";
 import { Box } from "@mui/material";
 import Emoticon from "../../assets/Emoticon.png";
+/* react router dom */
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -84,6 +86,16 @@ export default function Header() {
           </Box>
           <Box component="span" sx={{ fontWeight: "300" }}>
             Robert Kaya
+          </Box>
+          <Box component="span" sx={{ fontWeight: "300", marginLeft: "10px" }}>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={{
+                pathname: "/login",
+              }}
+            >
+              Login
+            </Link>
           </Box>
         </Box>
       </Box>

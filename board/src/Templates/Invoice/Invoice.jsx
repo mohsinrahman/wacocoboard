@@ -1,8 +1,7 @@
-
 import React from "react";
 import { useState } from "react";
 /* MUI */
-import { Slide } from '@mui/material';
+import { Slide } from "@mui/material";
 import { Box, Paper } from "@mui/material";
 /* DnD Kit */
 import { DndContext } from "@dnd-kit/core";
@@ -14,12 +13,8 @@ import Header from "../Header/Header";
 
 import Chart from "../../assets/Chart.png";
 
-
-
 function Invoice() {
-
   return (
-    
     <Box
       sx={{
         width: "100%",
@@ -54,36 +49,56 @@ function Invoice() {
               display: "grid",
               gap: 0,
               gridTemplateColumns: "repeat(2,20% 80% 1fr)",
-              padding: ".5em",
-              minHeight:"100vh"
+              padding: "0px",
+              minHeight: "100vh",
             }}
           >
-            <Box component="div" sx={{background:""}}>
-<Box component="div" sx={{width:"210px", height:"72px", background:"#FBFBFE"}}>
-<Box
-              component="img"
-              sx={{
-                height: 18,
-                width: 18,
-                verticalAlign: "middle",
-                marginRight: "20px",
-              }}
-              alt="Workspace."
-              src={Chart}
-            />
-  <Box component="p">
-            Click to upload
-  </Box>
-  </Box></Box>
-  <Slide direction="up" in={true} timeout={300}>
-            <Box component="div" sx={{background:"red"}}>
-            Invoice
+            <Box component="div" sx={{ background: "" }}>
+              <Box
+                component="div"
+                sx={{ width: "210px", height: "72px", background: "#FBFBFE" }}
+              >
+                <Box
+                  component="img"
+                  sx={{
+                    height: 18,
+                    width: 18,
+                    verticalAlign: "middle",
+                    marginRight: "20px",
+                  }}
+                  alt="Workspace."
+                  src={Chart}
+                />
+                <Box component="p">Click to upload</Box>
+              </Box>
             </Box>
-</Slide>
-
+            <Slide direction="up" in={true} timeout={300}>
+              <Box
+                component="div"
+                sx={{ borderRight: "1px solid #C8CBD9", padding: "0px" }}
+              >
+                <Box
+                  component="div"
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2,1fr)",
+                    textAlign: "left",
+                  }}
+                >
+                  <Box component="div">
+                    <Box component="h2">THE COMPANY</Box>
+                    <Box component="p">Alpha Tower, Bengaluru, India</Box>
+                    <Box component="p">
+                      the.company@company.com +93 93 904 093
+                    </Box>
+                  </Box>
+                  <Box component="div">Invoice #</Box>
+                </Box>
+              </Box>
+            </Slide>
           </Box>
         </Box>
-        
+
         <Box
           sx={{
             gridArea: "sidebar",
