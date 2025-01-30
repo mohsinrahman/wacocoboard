@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
-import { styled } from "@mui/material/styles";
+/* MUI */
+import { Slide } from '@mui/material';
 import { Box, Paper } from "@mui/material";
 /* DnD Kit */
 import { DndContext } from "@dnd-kit/core";
@@ -126,6 +126,7 @@ function Home() {
         <Header />
         {/* Header Ends */}
         <Box sx={{ gridArea: "main", height: "100%" }}>
+        <Slide direction="right" in={true} timeout={300}>
           <Box
             component="div"
             sx={{
@@ -149,6 +150,7 @@ function Home() {
             </DndContext>
             {/* DndContext Ends */}
           </Box>
+          </Slide>
         </Box>
         <Box
           sx={{
@@ -161,6 +163,7 @@ function Home() {
         ></Box>
       </Box>
     </Box>
+    
   );
 }
 

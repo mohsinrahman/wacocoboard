@@ -1,8 +1,8 @@
 
 import React from "react";
 import { useState } from "react";
-
-import { styled } from "@mui/material/styles";
+/* MUI */
+import { Slide } from '@mui/material';
 import { Box, Paper } from "@mui/material";
 /* DnD Kit */
 import { DndContext } from "@dnd-kit/core";
@@ -19,6 +19,7 @@ import Chart from "../../assets/Chart.png";
 function Invoice() {
 
   return (
+    
     <Box
       sx={{
         width: "100%",
@@ -74,9 +75,11 @@ function Invoice() {
             Click to upload
   </Box>
   </Box></Box>
+  <Slide direction="up" in={true} timeout={300}>
             <Box component="div" sx={{background:"red"}}>
-Invoice
+            Invoice
             </Box>
+</Slide>
 
           </Box>
         </Box>
