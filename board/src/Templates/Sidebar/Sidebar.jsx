@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Box, Typography, Paper } from "@mui/material";
+/* Images */
 import logo from "../../assets/logo.png";
 import Chart from "../../assets/Chart.png";
 
