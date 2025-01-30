@@ -1,12 +1,13 @@
 import * as React from "react";
+/* React Router */
+import { Routes, Route } from 'react-router';
 /* Material UI */
-import { styled } from "@mui/material/styles";
-import { Box, Paper } from "@mui/material";
-/* Components */
-import { ColumnMolecule } from "./Components/ColumnMolecule/ColumnMolecule";
+import { Box } from "@mui/material";
 /* Templates */
 import Sidebar from "./Templates/Sidebar/Sidebar";
 import Home from "./Templates/Home/Home";
+import Invoice from "./Templates/Invoice/Invoice";
+
 
 export default function App() {
   return (
@@ -32,7 +33,6 @@ export default function App() {
         <Box
           component="div"
           sx={{
-            textAlign: "left",
             backgroundColor: "#fff",
             minHeight: "100vh",
             overflow: "auto",
@@ -40,7 +40,11 @@ export default function App() {
           }}
         >
           {/* Search bar  */}
-          <Home />
+          <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/invoice" element={<Invoice />} />
+          </Routes>
+          
         </Box>
       </Box>
     </Box>

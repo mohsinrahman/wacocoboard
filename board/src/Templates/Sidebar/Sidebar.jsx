@@ -1,9 +1,10 @@
 import React from "react";
+/* react router dom */
+import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Box, Typography, Paper } from "@mui/material";
 import logo from "../../assets/logo.png";
 import Chart from "../../assets/Chart.png";
-import { withTheme } from "@emotion/react";
 
 export default function Sidebar() {
   return (
@@ -45,7 +46,7 @@ export default function Sidebar() {
           />
         </Box>
         <Typography variant="p" component="p" sx={{ marginTop: "40px" }}>
-          PRODUKTION
+       PRODUKTION
         </Typography>
         <Box
           component="div"
@@ -77,7 +78,9 @@ export default function Sidebar() {
               alt="Workspace."
               src={Chart}
             />{" "}
-            Taskboard
+             <Link style={{textDecoration:"none"}} to={{
+    pathname: "/",
+  }}>Taskboard</Link>
           </Box>
         </Box>
 
@@ -110,8 +113,11 @@ export default function Sidebar() {
               }}
               alt="Workspace."
               src={Chart}
-            />{" "}
-            Invoices
+            />
+            <Link style={{textDecoration:"none"}} to={{
+    pathname: "/invoice",
+  }}>Invoices</Link>
+            
           </Box>
         </Box>
       </Box>
