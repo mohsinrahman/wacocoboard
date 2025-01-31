@@ -62,7 +62,7 @@ export default function Header() {
           <Box
             component="span"
             sx={{
-              display: "inline-block",
+              display: "grid",
               width: "30px",
               height: "30px",
               borderRadius: "50%",
@@ -75,10 +75,7 @@ export default function Header() {
               sx={{
                 height: "15",
                 width: "14",
-
-                position: "relative",
-                top: "50%",
-                transform: "translate(40%, -50%)",
+                placeSelf: "center",
               }}
               alt="Emoticon."
               src={Emoticon}

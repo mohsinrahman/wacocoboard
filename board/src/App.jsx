@@ -9,6 +9,8 @@ import Home from "./Templates/Home/Home";
 import Invoice from "./Templates/Invoice/Invoice";
 import Login from "./Templates/Login/Login";
 
+import { PDFViewer } from "@react-pdf/renderer";
+
 export default function App() {
   return (
     <Box

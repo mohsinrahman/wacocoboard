@@ -22,7 +22,6 @@ const signIn = async (provider) => {
   });
   return promise;
 };
-
 export default function Login() {
   const { mode, systemMode } = useColorScheme();
   const calculatedMode = (mode === "system" ? systemMode : mode) ?? "light";

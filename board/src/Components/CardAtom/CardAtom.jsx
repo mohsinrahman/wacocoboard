@@ -3,18 +3,26 @@ import { Box, Paper } from "@mui/material";
 import Divider from "@mui/material/Divider";
 
 import { useDraggable } from "@dnd-kit/core";
+import { CSS } from "@dnd-kit/utilities";
+import { useSortable } from "@dnd-kit/sortable";
 
 export function CardAtom({ task }) {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: task.id,
-  });
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useDraggable({
+      id: task.id,
+    });
   const style = transform
     ? {
         transform: `translate(${transform.x}px, ${transform.y}px)`,
+        transition,
         background: "#FFFFFF",
       }
     : { background: "#FFFFFF" };
-
+  /*  const style = {
+      transform: CSS.Transform.toString(transform),
+      transition
+    };
+ */
   return (
     /* Parent div of Card starts */
     <Box
