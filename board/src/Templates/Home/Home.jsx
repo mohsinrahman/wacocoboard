@@ -126,6 +126,20 @@ function Home() {
         <Header />
         {/* Header Ends */}
         <Box sx={{ gridArea: "main", height: "100%" }}>
+          <Box
+            sx={{
+              display: "grid",
+              gap: 2,
+              gridTemplateColumns: "repeat(2, 65% 35% 1fr)",
+            }}
+          >
+            <Box component="div" sx={{ background: "#FBFBFE" }}>
+              Filters
+            </Box>
+            <Box component="div" sx={{ background: "#FBFBFE" }}>
+              Users
+            </Box>
+          </Box>
           <Slide direction="right" in={true} timeout={300}>
             <Box
               component="div"
