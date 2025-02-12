@@ -1,5 +1,5 @@
-import React from "react";
 import { useState } from "react";
+import React from "react";
 /* MUI */
 import { Slide } from "@mui/material";
 import { Box, Paper } from "@mui/material";
@@ -76,6 +76,7 @@ const INITIAL_TASKS = [
   },
 ];
 
+
 function Home() {
   const [tasks, setTasks] = useState(INITIAL_TASKS);
 
@@ -134,7 +135,29 @@ function Home() {
             }}
           >
             <Box component="div" sx={{ background: "#FBFBFE" }}>
-              Filters
+            <Box
+            sx={{
+              display: "grid",
+              gap: 2,
+              gridTemplateColumns: "repeat(3, 35% 35% 30% 1fr)",
+            }}
+          >
+            <Box component="div"  >
+            <Box  component="h4" >Customers</Box>
+            <Box  component="p" sx={{ display:"inline-block", border:"1px solid black",borderRadius:"5px", padding:"5px", margin:"5px"
+            }}>
+               {tasks.map((task) =>
+       task.title
+      )}
+            </Box>
+            <Box  component="p" sx={{ display:"inline-block", border:"1px solid black" ,borderRadius:"5px",  padding:"5px"
+            }}>Stadium
+            </Box>
+              
+            </Box>
+            <Box component="div">Date</Box>
+            <Box component="div">Search</Box>
+          </Box>
             </Box>
             <Box component="div" sx={{ background: "#FBFBFE" }}>
               Users
